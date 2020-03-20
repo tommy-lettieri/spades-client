@@ -13,25 +13,33 @@ type AppProps = {
 // }
 
 type AppState = {
-  value: string
+  value: string,
+  seat: string // TODO make this an enum
 }
 
 class App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      value: '',
+      seat: ''
+    };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleSeatChange = this.handleSeatChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event: any) {
-    console.log("TOMTOM")
+  handleNameChange(event: any) {
     this.setState({value: event.target.value});
   }
 
+  handleSeatChange(event: any) {
+    this.setState({seat: event.target.value});
+  }
+
   handleSubmit(event: any) {
-    alert('A name was submitted: ' + this.state.value);
+    alert(JSON.stringify(this.state, null, 2));
     event.preventDefault();
   }
 
@@ -40,8 +48,31 @@ class App extends React.Component<AppProps, AppState> {
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" value={this.state.value} onChange={this.handleNameChange} />
         </label>
+        <br/>
+
+        {/* TODO make a component for seats and seat */}
+        <label>
+          North:
+          <input type="radio" name="seat" value="north" checked={this.state.seat === 'north'} onChange={this.handleSeatChange} />
+        </label>
+        <br/>
+        <label>
+          East:
+          <input type="radio" name="seat" value="east" checked={this.state.seat === 'east'} onChange={this.handleSeatChange} />
+        </label>
+        <br/>
+        <label>
+          South:
+          <input type="radio" name="seat" value="south" checked={this.state.seat === 'south'} onChange={this.handleSeatChange} />
+        </label>
+        <br/>
+        <label>
+          West:
+          <input type="radio" name="seat" value="west" checked={this.state.seat === 'west'} onChange={this.handleSeatChange} />
+        </label>
+        <br/>
         <input type="submit" value="Submit"/>
       </form>
     );
