@@ -1,8 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-type AppProps = {
+type LoginProps = {
+}
+
+type LoginState = {
+  value: string,
+  seat: string // TODO make this an enum
 }
 
 // type ChangeEvent = {
@@ -12,13 +15,8 @@ type AppProps = {
 //   }
 // }
 
-type AppState = {
-  value: string,
-  seat: string // TODO make this an enum
-}
-
-class App extends React.Component<AppProps, AppState> {
-  constructor(props: AppProps) {
+class Login extends React.Component<LoginProps, LoginState> {
+  constructor(props: LoginProps) {
     super(props);
     this.state = {
       value: '',
@@ -79,4 +77,4 @@ class App extends React.Component<AppProps, AppState> {
   }
 }
 
-export default App;
+export default Login;
