@@ -1,6 +1,9 @@
 import React from 'react';
 // import './App.css';
 import Login from './Login';
+import CardModel from '../models/Card';
+import Card from './Card';
+import Suit from '../constants/enums/Suit';
 
 type AppProps = {
 }
@@ -17,7 +20,8 @@ class App extends React.Component<AppProps, AppState> {
 
   render() {
     return (
-      <Login />
+      // <Login />
+      <Card card={new CardModel(2, Suit.SPADE)} />
     );
   }
 }
