@@ -52,17 +52,37 @@ class App extends React.Component<AppProps, AppState> {
             nsCumulativeScore: 6,
             ewCumulativeScore: 6
           },
-          ]}/>
-        <Board style={{
-          width: '33%',
-          height: '30%',
-        }} />
+        ]} />
+        <Board
+          style={{
+            width: '33%',
+            height: '30%',
+          }}
+          players={{
+            north: {
+              name: 'north',
+              bet: '1'
+            },
+            east: {
+              name: 'east',
+              bet: '2'
+            },
+            south: {
+              name: 'south',
+              bet: '3'
+            },
+            west: {
+              name: 'west',
+              bet: '4'
+            },
+          }}
+          />
         <Hand cards={cards} />
         <Chat style={{
           height: '300px',
           width: '100%',
           backgroundColor: 'green'
-        }}/>
+        }} />
       </div>
     );
   }

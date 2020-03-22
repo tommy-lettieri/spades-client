@@ -5,8 +5,27 @@ import Player from './Player';
 import Suit from '../constants/enums/Suit';
 
 let playedCard = new CardModel(5, Suit.SPADE);
+
 type BoardProps = {
     style?: any
+    players: {
+        north: {
+            name?: string,
+            bet?: string
+        },
+        south: {
+            name?: string,
+            bet?: string
+        },
+        east: {
+            name?: string,
+            bet?: string
+        },
+        west: {
+            name?: string,
+            bet?: string
+        },
+    }
 }
 
 function Board(props: BoardProps) {
@@ -15,7 +34,7 @@ function Board(props: BoardProps) {
             display: 'flex',
             ...props.style
         }}>
-            <Player playedCard={playedCard} name="TOMTOM" bet="5" style={{
+            <Player playedCard={playedCard} name={props.players.west.name || ''} bet={props.players.west.bet} style={{
                 width: '33%',
                 height: '100%',
                 backgroundColor: 'green',
@@ -28,25 +47,24 @@ function Board(props: BoardProps) {
                 height: '100%',
                 backgroundColor: 'blue'
             }}>
-                <Player playedCard={playedCard} name="TOMTOM" bet="5" onTop={true} style={{
+                <Player playedCard={playedCard} name={props.players.north.name || ''} bet={props.players.north.bet} onTop={true} style={{
                     width: '100%',
                     height: '50%',
                     backgroundColor: 'yellow'
                 }} />
-                <Player playedCard={playedCard} name="TOMTOM" bet="5" style={{
+                <Player playedCard={playedCard} name={props.players.south.name || ''} bet={props.players.south.bet} style={{
                     width: '100%',
                     height: '50%',
                     backgroundColor: 'purple'
                 }} />
             </div>
-            <Player playedCard={playedCard} name="TOMTOM" bet="5" style={{
+            <Player playedCard={playedCard} name={props.players.east.name || ''} bet={props.players.east.bet} style={{
                 width: '33%',
                 height: '100%',
                 backgroundColor: 'red',
                 alignItems: 'flex-start',
                 justifyContent: 'center'
             }} />
-            {/* <Player playedCard={playedCard} style={{ height: '200px' }} name="TOMTOM" bet="5" onTop={true} /> */}
         </div>
     );
 }
