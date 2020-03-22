@@ -3,6 +3,7 @@ import '../App.css';
 import Login from './Login';
 import CardModel from '../models/Card';
 import Card from './Card';
+import Chat from './Chat';
 import Suit from '../constants/enums/Suit';
 import Deck from '../models/Deck';
 import Hand from './Hand';
@@ -33,9 +34,14 @@ class App extends React.Component<AppProps, AppState> {
         {/* {d.getCards().map((c:CardModel)=><Card style={{maxWidth: '100px'}}card={c} />)} */}
         <Board style={{
           width: '33%',
-          height: '80%',
+          height: '30%',
         }} />
         <Hand cards={cards} />
+        <Chat style={{
+          height: '300px',
+          width: '100%',
+          backgroundColor: 'green'
+        }}/>
       </div>
     );
   }
