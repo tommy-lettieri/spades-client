@@ -1,5 +1,5 @@
 import React from 'react';
-// import './App.css';
+import '../App.css';
 import Login from './Login';
 import CardModel from '../models/Card';
 import Card from './Card';
@@ -27,12 +27,15 @@ class App extends React.Component<AppProps, AppState> {
 
   render() {
     return (
-      <div>
+      <div style={{ height: '100%' }}>
         {/* <Login /> */}
         {/* <Card card={new CardModel(2, Suit.SPADE)} /> */}
         {/* {d.getCards().map((c:CardModel)=><Card style={{maxWidth: '100px'}}card={c} />)} */}
-        <Board />
-        <Hand cards={cards}/>
+        <Board style={{
+          width: '33%',
+          height: '80%',
+        }} />
+        <Hand cards={cards} />
       </div>
     );
   }

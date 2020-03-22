@@ -6,14 +6,14 @@ import Suit from '../constants/enums/Suit';
 
 let playedCard = new CardModel(5, Suit.SPADE);
 type BoardProps = {
+    style?: any
 }
 
 function Board(props: BoardProps) {
     return (
         <div style={{
-            width: '100%',
-            height: '700px',
-            display: 'flex'
+            display: 'flex',
+            ...props.style
         }}>
             <Player playedCard={playedCard} name="TOMTOM" bet="5" style={{
                 width: '33%',
