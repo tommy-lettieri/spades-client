@@ -7,6 +7,7 @@ import Suit from '../constants/enums/Suit';
 import Deck from '../models/Deck';
 import Hand from './Hand';
 import Player from './Player';
+import Board from './Board';
 
 type AppProps = {
 }
@@ -30,8 +31,7 @@ class App extends React.Component<AppProps, AppState> {
         {/* <Login /> */}
         {/* <Card card={new CardModel(2, Suit.SPADE)} /> */}
         {/* {d.getCards().map((c:CardModel)=><Card style={{maxWidth: '100px'}}card={c} />)} */}
-        <Player playedCard={playedCard} style={{height: '200px'}} name="TOMTOM" bet="5" onTop={true} />
-        <Player playedCard={playedCard} style={{height: '200px'}} name="TOMTOM" bet="5" />
+        <Board />
         <Hand cards={cards}/>
       </div>
     );
