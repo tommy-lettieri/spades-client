@@ -22,7 +22,7 @@ function PlayerDetails(props: PlayerProps) {
 
 function Player(props: PlayerProps) {
     return (
-        <div style={{
+        <div className='player' style={{
             height: '30%',
             display: 'flex',
             flexDirection: 'column',
@@ -31,9 +31,9 @@ function Player(props: PlayerProps) {
         }}>
             {props.onTop && PlayerDetails(props)}
             <Card card={props.playedCard} style={{
-                height: '80%'
+                // height: '80%'
                 // TODO below didn't work
-                // flexGrow: 1
+                flexGrow: 1
             }} />
             {!props.onTop && PlayerDetails(props)}
         </div>

@@ -8,7 +8,8 @@ type ScoreEntry = {
 }
 
 type ScoreBoardProps = {
-    scores: ScoreEntry[]
+    scores: ScoreEntry[],
+    style?: any
 }
 
 const cellBorderStyle = {
@@ -38,7 +39,7 @@ function RoundScore(score: ScoreEntry) {
 }
 function ScoreBoard(props: ScoreBoardProps) {
     return (
-        <div>
+        <div style={props.style}>
             <div>
                 <div style={{
                     display: 'flex',

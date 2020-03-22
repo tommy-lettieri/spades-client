@@ -30,9 +30,9 @@ type BoardProps = {
 
 function Board(props: BoardProps) {
     return (
-        <div style={{
+        <div className='board' style={{
             display: 'flex',
-            ...props.style
+            ...props.style,
         }}>
             <Player playedCard={playedCard} name={props.players.west.name || ''} bet={props.players.west.bet} style={{
                 width: '33%',

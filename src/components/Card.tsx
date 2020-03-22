@@ -26,7 +26,7 @@ let getImgUrl = (card: CardModel) => {
 }
 function Card(props: CardProps) {
     return (
-        <div style={{
+        <div className='card' style={{
             textAlign: 'center',
             ...props.style
         }}>

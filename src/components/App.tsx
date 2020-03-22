@@ -29,59 +29,91 @@ class App extends React.Component<AppProps, AppState> {
 
   render() {
     return (
-      <div style={{ height: '100%' }}>
-        {/* <Login /> */}
-        {/* <Card card={new CardModel(2, Suit.SPADE)} /> */}
-        {/* {d.getCards().map((c:CardModel)=><Card style={{maxWidth: '100px'}}card={c} />)} */}
-        <ScoreBoard scores={[
-          {
-            nsRoundScore: 1,
-            ewRoundScore: 3,
-            nsCumulativeScore: 1,
-            ewCumulativeScore: 3
-          },
-          {
-            nsRoundScore: 2,
-            ewRoundScore: 2,
-            nsCumulativeScore: 3,
-            ewCumulativeScore: 5
-          },
-          {
-            nsRoundScore: 3,
-            ewRoundScore: 1,
-            nsCumulativeScore: 6,
-            ewCumulativeScore: 6
-          },
-        ]} />
-        <Board
-          style={{
-            width: '33%',
-            height: '30%',
-          }}
-          players={{
-            north: {
-              name: 'north',
-              bet: '1'
+      <div style={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column'
+        }}>
+        <div style={{
+          display: 'flex',
+          flexGrow: 5
+        }}
+        >
+          <ScoreBoard scores={[
+            {
+              nsRoundScore: 1,
+              ewRoundScore: 3,
+              nsCumulativeScore: 1,
+              ewCumulativeScore: 3
             },
-            east: {
-              name: 'east',
-              bet: '2'
+            {
+              nsRoundScore: 2,
+              ewRoundScore: 2,
+              nsCumulativeScore: 3,
+              ewCumulativeScore: 5
             },
-            south: {
-              name: 'south',
-              bet: '3'
+            {
+              nsRoundScore: 3,
+              ewRoundScore: 1,
+              nsCumulativeScore: 6,
+              ewCumulativeScore: 6
             },
-            west: {
-              name: 'west',
-              bet: '4'
-            },
-          }}
+          ]} style={{
+            flexGrow: 1
+          }} />
+          <Board
+            style={{
+              flexGrow: 2,
+            }}
+            players={{
+              north: {
+                name: 'north',
+                bet: '1'
+              },
+              east: {
+                name: 'east',
+                bet: '2'
+              },
+              south: {
+                name: 'south',
+                bet: '3'
+              },
+              west: {
+                name: 'west',
+                bet: '4'
+              },
+            }}
           />
+          <Board
+            style={{
+              flexGrow: 1,
+              height: '100px',
+            }}
+            players={{
+              north: {
+                name: 'north',
+                bet: '1'
+              },
+              east: {
+                name: 'east',
+                bet: '2'
+              },
+              south: {
+                name: 'south',
+                bet: '3'
+              },
+              west: {
+                name: 'west',
+                bet: '4'
+              },
+            }}
+          />
+        </div>
         <Hand cards={cards} />
         <Chat style={{
           height: '300px',
           width: '100%',
-          backgroundColor: 'green'
+          flexGrow: 1
         }} />
       </div>
     );
