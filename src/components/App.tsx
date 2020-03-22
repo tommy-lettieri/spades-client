@@ -9,6 +9,7 @@ import Deck from '../models/Deck';
 import Hand from './Hand';
 import Player from './Player';
 import Board from './Board';
+import ScoreBoard from './ScoreBoard';
 
 type AppProps = {
 }
@@ -32,6 +33,26 @@ class App extends React.Component<AppProps, AppState> {
         {/* <Login /> */}
         {/* <Card card={new CardModel(2, Suit.SPADE)} /> */}
         {/* {d.getCards().map((c:CardModel)=><Card style={{maxWidth: '100px'}}card={c} />)} */}
+        <ScoreBoard scores={[
+          {
+            nsRoundScore: 1,
+            ewRoundScore: 3,
+            nsCumulativeScore: 1,
+            ewCumulativeScore: 3
+          },
+          {
+            nsRoundScore: 2,
+            ewRoundScore: 2,
+            nsCumulativeScore: 3,
+            ewCumulativeScore: 5
+          },
+          {
+            nsRoundScore: 3,
+            ewRoundScore: 1,
+            nsCumulativeScore: 6,
+            ewCumulativeScore: 6
+          },
+          ]}/>
         <Board style={{
           width: '33%',
           height: '30%',
