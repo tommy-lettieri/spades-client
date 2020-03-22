@@ -10,6 +10,7 @@ import Hand from './Hand';
 import Player from './Player';
 import Board from './Board';
 import ScoreBoard from './ScoreBoard';
+import io from 'socket.io-client';
 
 type AppProps = {
 }
@@ -20,6 +21,19 @@ type AppState = {
 let d = new Deck();
 let cards = d.getCards().slice(0, 13);
 let playedCard = d.getCards()[14];
+
+const socket = io();
+console.log('TOMTOM:1');
+socket.on('deck', (data: any) => {
+  console.log(`TOMTOM: ${data}`)
+});
+socket.on('connection', function(socket: any){
+  console.log('TOMTOM: a user connected');
+
+  socket.on('disconnect', function(){
+    console.log('TOMTOM: user disconnected');
+  });
+});
 class App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
@@ -28,6 +42,8 @@ class App extends React.Component<AppProps, AppState> {
   }
 
   render() {
+    // TODO remove this is just a communication test
+    fetch('/api').then(response => response.text()).then(console.log);
     return (
       <div style={{
         height: '100%',
