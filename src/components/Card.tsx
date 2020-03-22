@@ -26,8 +26,11 @@ let getImgUrl = (card: CardModel) => {
 }
 function Card(props: CardProps) {
     return (
-        <div style={props.style}>
-            <img src={getImgUrl(props.card)} style={{maxWidth: '100%'}}/>
+        <div style={{
+            textAlign: 'center',
+            ...props.style
+        }}>
+            <img src={getImgUrl(props.card)} style={{ maxWidth: '100%', maxHeight: '100%' }} />
         </div>
     );
 }

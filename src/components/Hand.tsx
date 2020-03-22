@@ -7,18 +7,22 @@ type HandProps = {
     style?: any
 }
 
-let getMaxCardWidth = (numOfCards:number, paddingPercent:number=0) => `${((100/(numOfCards || 1))- (paddingPercent*2))}%`;
+let getMaxCardWidth = (numOfCards: number, paddingPercent: number = 0) => `${((100 / (numOfCards || 1)) - (paddingPercent * 2))}%`;
 
 function Hand(props: HandProps) {
     let paddingPercent = 1
     let maxCardWidth = getMaxCardWidth(props.cards.length, paddingPercent);
     return (
-        <div style={props.style}>
+        <div style={{
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'center',
+            ...props.style
+        }}>
             {props.cards.map(card => <Card card={card} style={{
-                maxWidth: maxCardWidth,
+                width: maxCardWidth,
                 padding: `${paddingPercent}%`,
-                float: 'left'
-                }}/>)}
+            }} />)}
         </div>
     );
 }
