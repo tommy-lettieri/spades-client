@@ -1,7 +1,8 @@
 import React from 'react';
 import CardModel from '../models/Card';
 type CardProps = {
-    card: CardModel
+    card: CardModel,
+    style?: any
 }
 
 let getImgUrl = (card: CardModel) => {
@@ -25,8 +26,8 @@ let getImgUrl = (card: CardModel) => {
 }
 function Card(props: CardProps) {
     return (
-        <div>
-            <img src={getImgUrl(props.card)} />
+        <div style={props.style}>
+            <img src={getImgUrl(props.card)} style={{maxWidth: '100%'}}/>
         </div>
     );
 }

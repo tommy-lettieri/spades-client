@@ -25,7 +25,7 @@ class App extends React.Component<AppProps, AppState> {
       <div>
         {/* <Login /> */}
         {/* <Card card={new CardModel(2, Suit.SPADE)} /> */}
-        {d.getCards().map((c:CardModel)=><Card card={c} />)}
+        {d.getCards().map((c:CardModel)=><Card style={{maxWidth: '100px'}}card={c} />)}
       </div>
     );
   }
